@@ -1525,9 +1525,6 @@ else
 		}
 		else
 		{
-<<<<<<< HEAD
-			$_ENV['HOME'] = trim(`cd ~ && pwd`);
-=======
 			$dir = exec('(cd ~ && pwd) 2>&1', $out, $exit);
 			if ($exit === 0)
 			{
@@ -1538,7 +1535,6 @@ else
 				error_log('Failed to determine HOME directory after trying "' . $dir . '" (exit code ' . $exit . ')');
 				$_ENV['HOME'] = false;
 			}
->>>>>>> 026598ea7fa9c8d0005838f7f347bcca3b92154a
 		}
 
 		if (!$_ENV['HOME'])
@@ -1562,16 +1558,10 @@ else
 		}
 	}
 
-<<<<<<< HEAD
-	if (!!$_ENV['HOME'] && file_exists($_ENV['HOME'] . DIRECTORY_SEPARATOR . '.aws' . DIRECTORY_SEPARATOR . 'sdk' . DIRECTORY_SEPARATOR . 'config.inc.php'))
-	{
-		include_once $_ENV['HOME'] . DIRECTORY_SEPARATOR . '.aws' . DIRECTORY_SEPARATOR . 'sdk' . DIRECTORY_SEPARATOR . 'config.inc.php';
-=======
 	$path = DIRECTORY_SEPARATOR . '.aws' . DIRECTORY_SEPARATOR . 'sdk' . DIRECTORY_SEPARATOR . 'config.inc.php';
 	if (isset($_ENV['HOME']) && file_exists($_ENV['HOME'] . $path))
 	{
 		include_once $_ENV['HOME'] . $path;
->>>>>>> 026598ea7fa9c8d0005838f7f347bcca3b92154a
 	}
 
 	unset($os, $dir, $out, $exit, $path);
